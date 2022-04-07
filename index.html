@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css" type="text/css">
+    <!-- Link to bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <!-- Font Awesome script. More specific one for bootstrap. -->
+    <script src="https://kit.fontawesome.com/8d0f117fd6.js" crossorigin="anonymous"></script>
+    <title>Point Calculator</title>
+</head>
+<body>
+    <header>RoseDial Art Duels</header>
+    <main>
+        <h1>Point Calculator</h1>
+        <form>
+            <fieldset>
+                <legend>Your Attack Info</legend>
+                <div>
+                    <label for="victim">Victim:</label>
+                    <span class="required-field">*</span>
+                    <input type="text" minlength="2" maxlength="35" id="victim" name="victim" required>
+                    <!-- Add option for multiple victims -->
+                </div>
+
+                <div>
+                    <label for="attack-number">Does this person have 3 or less attacks?:</label>
+                    <span class="required-field">*</span>
+                    <select id="attack-number" name="attack-number">
+                        <option value="over-three-attacks">No</option>
+                        <option value="less-than-three">Yes</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="attack-revenge">Attack or Revenge?:</label>
+                    <span class="required-field">*</span>
+                    <select id="attack-revenge-list" name="attack-revenge">
+                        <option value="attack">Attack</option>
+                        <option value="revenge">Revenge</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="size">Attack Size</label>
+                    <span class="required-field">*</span>
+                    <select id="size-list" name="size">
+                        <option value="simple-shaped">Simple-Shaped</option>
+                        <option value="chibi-bust">Bust (Chibi)</option>
+                        <option value="bust">Bust</option>
+                        <option value="half-body-chibi">Half Body (Chibi)</option>
+                        <option value="half-body">Half Body</option>
+                        <option value="full-body-chibi">Full Body (Chibi)</option>
+                        <option value="full-body">Full Body</option>
+                    </select>
+                    <!-- https://www.quirksmode.org/dom/domform.html -->
+                    <!-- Add way to determine if your character or victim's -->
+                </div>
+                
+                <div>
+                    <label for="lines">Line Type</label>
+                    <span class="required-field">*</span>
+                    <select id="line-list" name="lines">
+                        <option value="sketchy">Sketchy</option>
+                        <option value="clean-lines">Clean Lines</option>
+                        <option value="lineless">Lineless</option>
+                    </select>
+
+                </div>
+
+                <div>
+                    <label for="color">Color Type</label>
+                    <span class="required-field">*</span>
+                    <select id="color-list" name="color">
+                        <option value="no-color">No Color</option>
+                        <option value="partial-color">Partial Color</option>
+                        <option value="full-color">Full Color</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="shading">Shading Type</label>
+                    <span class="required-field">*</span>
+                    <select id="shading-list" name="shading">
+                        <option value="no-shading">No Shading</option>
+                        <option value="partial-shading">Partial Shading</option>
+                        <option value="full-shading">Full Shading</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="background">Background Type</label>
+                    <span class="required-field">*</span>
+                    <select id="background-list" name="background">
+                        <option value="no-background">None</option>
+                        <option value="props-items">Props/Items</option>
+                        <option value="full-background">Full Background / Scene</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="animation">Animation</label>
+                    <span class="required-field">*</span>
+                    <select id="animation-list" name="animation">
+                        <option value="no-animation">No</option>
+                        <option value="yes-animation">Yes</option>
+                    </select>
+                </div>
+
+            </fieldset>
+            <br>
+            <input type="submit" value="Calculate Points!">
+        </form>
+    </main>
+    
+</body>
+</html>
