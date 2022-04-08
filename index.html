@@ -10,63 +10,104 @@
 
     <!-- Font Awesome script. More specific one for bootstrap. -->
     <script src="https://kit.fontawesome.com/8d0f117fd6.js" crossorigin="anonymous"></script>
+    <script src="script.js" defer></script>
+    
     <title>Point Calculator</title>
 </head>
 <body>
     <header>RoseDial Art Duels</header>
     <main>
         <h1>Point Calculator</h1>
-        <form>
+        <form method="GET" action="results.html">
             <fieldset>
                 <legend>Your Attack Info</legend>
                 <div>
                     <label for="victim">Victim:</label>
                     <span class="required-field">*</span>
-                    <input type="text" minlength="2" maxlength="35" id="victim" name="victim" required>
+                    <input type="text" minlength="2" maxlength="35" id="victim" 
+                    name="victim" placeholder="@[DiscordName]" required>
                     <!-- Add option for multiple victims -->
                 </div>
 
                 <div>
-                    <label for="attack-number">Does this person have 3 or less attacks?:</label>
-                    <span class="required-field">*</span>
-                    <select id="attack-number" name="attack-number">
-                        <option value="over-three-attacks">No</option>
-                        <option value="less-than-three">Yes</option>
-                    </select>
+                    <input type="checkbox" id="friendly-fire" name="victimInfo" value="Friendly Fire"> 
+                    <label for="friendly-fire">Friendly Fire</label>
+                </div>
+                <div>
+                    <input type="checkbox" id="3-or-less" name="victimInfo" value="Victim has 3 or less attacks"> 
+                    <label for="3-or-less">Victim has 3 or less attacks </label>
+                </div>
+                <div>
+                    <input type="checkbox" id="animation" name="victimInfo" value="Animation"> 
+                    <label for="animation">Animation </label>
                 </div>
 
                 <div>
                     <label for="attack-revenge">Attack or Revenge?:</label>
                     <span class="required-field">*</span>
                     <select id="attack-revenge-list" name="attack-revenge">
-                        <option value="attack">Attack</option>
-                        <option value="revenge">Revenge</option>
+                        <option value="Attack">Attack</option>
+                        <option value="Revenge">Revenge</option>
                     </select>
                 </div>
 
                 <div>
-                    <label for="size">Attack Size</label>
+                    <label for="size">Character Size</label>
                     <span class="required-field">*</span>
                     <select id="size-list" name="size">
-                        <option value="simple-shaped">Simple-Shaped</option>
-                        <option value="chibi-bust">Bust (Chibi)</option>
-                        <option value="bust">Bust</option>
-                        <option value="half-body-chibi">Half Body (Chibi)</option>
-                        <option value="half-body">Half Body</option>
-                        <option value="full-body-chibi">Full Body (Chibi)</option>
-                        <option value="full-body">Full Body</option>
+                        <option value="Simple-Shaped">Simple-Shaped</option>
+                        <option value="Bust">Bust</option>
+                        <option value="Half Body">Half Body</option>
+                        <option value="Full Body">Full Body</option>
                     </select>
+                    
+                    <div>
+                        <input type="checkbox" id="chibi" name="chibi" value="Chibi"> 
+                        <label for="chibi">Chibi</label>
+                    </div>
+                </div>
                     <!-- https://www.quirksmode.org/dom/domform.html -->
                     <!-- Add way to determine if your character or victim's -->
+
+
+                <!-- TEST -->
+                <div id="readroot" style="display: none">
+                    <div id="newCharacter">
+                        
+                    
+                        <label for="size">Character Size</label>
+                        <span class="required-field">*</span>
+                        <select id="size-list" name="size">
+                            <option value="Simple-Shaped">Simple-Shaped</option>
+                            <option value="Bust">Bust</option>
+                            <option value="Half Body">Half Body</option>
+                            <option value="Full Body">Full Body</option>
+                        </select>
+                        
+                        <div>
+                            <input type="checkbox" id="chibi" name="chibi" value="Chibi"> 
+                            <label for="chibi">Chibi</label>
+                        </div>
+                        <input type="button" value="Remove character" id="removeButton"
+                        onclick="this.parentNode.parentNode.removeChild(this.parentNode);" /><br /><br />
+                    </div>
                 </div>
+                    <span id="writeroot"></span>
+                    <input type="button" id="addButton" onclick="moreFields()" value="Add another character" />
+
                 
+
+
+                <!-- END OF TEST REAL -->
+
+
                 <div>
                     <label for="lines">Line Type</label>
                     <span class="required-field">*</span>
                     <select id="line-list" name="lines">
-                        <option value="sketchy">Sketchy</option>
-                        <option value="clean-lines">Clean Lines</option>
-                        <option value="lineless">Lineless</option>
+                        <option value="Sketchy">Sketchy</option>
+                        <option value="Clean Lines">Clean Lines</option>
+                        <option value="Lineless">Lineless</option>
                     </select>
 
                 </div>
@@ -75,9 +116,9 @@
                     <label for="color">Color Type</label>
                     <span class="required-field">*</span>
                     <select id="color-list" name="color">
-                        <option value="no-color">No Color</option>
-                        <option value="partial-color">Partial Color</option>
-                        <option value="full-color">Full Color</option>
+                        <option value="None">None</option>
+                        <option value="Partial Color">Partial Color</option>
+                        <option value="Full Color">Full Color</option>
                     </select>
                 </div>
 
@@ -85,9 +126,9 @@
                     <label for="shading">Shading Type</label>
                     <span class="required-field">*</span>
                     <select id="shading-list" name="shading">
-                        <option value="no-shading">No Shading</option>
-                        <option value="partial-shading">Partial Shading</option>
-                        <option value="full-shading">Full Shading</option>
+                        <option value="None">None</option>
+                        <option value="Partial Shading">Partial Shading</option>
+                        <option value="Full Shading">Full Shading</option>
                     </select>
                 </div>
 
@@ -95,25 +136,40 @@
                     <label for="background">Background Type</label>
                     <span class="required-field">*</span>
                     <select id="background-list" name="background">
-                        <option value="no-background">None</option>
-                        <option value="props-items">Props/Items</option>
-                        <option value="full-background">Full Background / Scene</option>
+                        <option value="None">None</option>
+                        <option value="Props/Items">Props/Items</option>
+                        <option value="Full Background / Scene">Full Background / Scene</option>
                     </select>
                 </div>
 
-                <div>
-                    <label for="animation">Animation</label>
-                    <span class="required-field">*</span>
-                    <select id="animation-list" name="animation">
-                        <option value="no-animation">No</option>
-                        <option value="yes-animation">Yes</option>
-                    </select>
-                </div>
+
 
             </fieldset>
             <br>
-            <input type="submit" value="Calculate Points!">
+            <div class="buttons">
+                <button type="submit" id="submitButton"> Calculate Points!</button>
+                <button type="reset" id="resetButton"> Reset </button>
+            </div>
         </form>
+
+        <div class="resultsBox">
+            <h4 id="results">Results</h4>
+            <p>Any thoughts on if results go here? This is what I was aiming for,
+                and I'm sure I can manage it since I got something
+                similar for the randomizer. Just currently having issues. >:(
+                And guess it's less of a priority right now anyway. CALCULATIONS 
+                ARE MORE IMPORTANT! >:O
+            </p>
+            <iframe id="infoHere" src="" width="600" height="100"></iframe>
+
+        </div>
+
+        
+            
+
+        
+
+        
     </main>
     
 </body>

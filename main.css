@@ -4,6 +4,10 @@ body {
     padding: 0;
 }
 
+header {
+    text-align: center;
+}
+
 body {
     font-family: 'Arial';
     min-height: 100vmin;
@@ -72,3 +76,78 @@ label {
 .required-field {
     color: red;
 }
+
+.resultsBox {
+    border-radius: 25px;
+    border: .15em solid green;
+    margin: 1em;
+    padding: .5em;
+}
+
+/* .buttons {
+
+} */
+
+/* .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+#submitButton {
+    border-radius: 10px;
+    margin: .15em;
+    padding: .5em;
+    background-color: rgb(53, 172, 53);
+}
+
+#submitButton:hover {
+    background: linear-gradient(to bottom left, rgb(54, 196, 54), rgb(77, 241, 77));
+  }
+
+#resetButton {
+    border-radius: 10px;
+    margin: .15em;
+    padding: .5em;
+    background-color: rgb(206, 95, 95);
+}
+
+#resetButton:hover {
+    background: linear-gradient(to bottom left, rgb(232, 78, 78), rgb(243, 44, 44));
+  }
+
+  #historyButton {
+    border-radius: 10px;
+    margin: .15em;
+    padding: .5em;
+    background-color: rgb(152, 152, 220);
+    font-size: 1em;
+  }
+
+  #historyButton:hover {
+    background: linear-gradient(to bottom left, rgb(141, 141, 239), rgb(76, 76, 185));
+  }
+
+  #newCharacter {
+      border: 2px solid gray;
+
+  }
+
+  #removeButton {
+    border-radius: 10px;
+    margin: .1em;
+    padding: .1em;
+    width: 10em;
+    background-color: rgb(206, 95, 95);
+  }
+
+  #removeButton:hover {
+    background: linear-gradient(to bottom left, rgb(232, 78, 78), rgb(243, 44, 44));
+  }
+
+  #addButton {
+    border-radius: 10px;
+    margin: .1em;
+    padding: .1em;
+    width: 12em;
+  }
